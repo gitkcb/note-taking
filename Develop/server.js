@@ -9,8 +9,8 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(express.static('public'));
 
-const routerapi = require('./routes/apiRoutes')(app);
-const routerhtml = require('./routes/htmlRoutes')(app);
+const routerapi = require('./routes/apiRoutes');
+const routerhtml = require('./routes/htmlRoutes');
 
 app.listen(PORT, () =>
 console.log(`Listening at http://localhost:${PORT}`));
