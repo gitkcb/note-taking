@@ -3,7 +3,7 @@ const fs = require('fs');
 const uuid = require('../../helpers/uuid');
 
 
-
+//gets the notes api
 noteRoutes.get('/notes', (req, res) => {
     fs.readFile('db/db.json', (err, data) => {
         let results = JSON.parse(data);
@@ -12,7 +12,7 @@ noteRoutes.get('/notes', (req, res) => {
     })
    
 });
-
+//posts the notes api
 noteRoutes.post('/notes', (req, res) => {
     fs.readFile('db/db.json', (err,data) => {
         let notes = JSON.parse(data);
@@ -26,7 +26,7 @@ noteRoutes.post('/notes', (req, res) => {
 
     notes.push(note);
     console.log(notes);
-
+//writes file to the database
     fs.writeFile('db/db.json', JSON.stringify(notes),(data, err) => {
         console.log(data);
         res.json(data);
